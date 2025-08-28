@@ -33,6 +33,6 @@ let recognition;
 if('webkitSpeechRecognition' in window){ recognition = new webkitSpeechRecognition(); recognition.continuous=false; recognition.interimResults=false; recognition.onresult=event=>{ input.value=event.results[0][0].transcript; sendBtn.click(); }; }
 speakBtn.addEventListener('click',()=>{ if(recognition) recognition.start(); });
 // WebSocket
-const ws = new WebSocket('ws://localhost:8080');
+const ws = new WebSocket('wss://6e6d0c3e57b5.ngrok-free.app');
 ws.onopen=()=>console.log('Connected to learning server');
 ws.onmessage=msg=>console.log('WS message:', msg.data);
